@@ -1,15 +1,14 @@
 ﻿using System;
 using Xamarin.Forms;
-using System.Collections.Generic;
 
 namespace relative_layout_testing
 {
-	public class TestPage: ContentPage
+	public class HowItShouldLook: ContentPage
 	{
 		protected const int imageSize = 45;
 		protected const int images_count = 4;
 
-		public TestPage ()
+		public HowItShouldLook ()
 		{
 			var scroll = new ScrollView ();
 
@@ -20,6 +19,15 @@ namespace relative_layout_testing
 
 			for(int i = 0; i < 20; i++){
 				var relative = new RelativeLayout ();
+				BoxView backgroundLine = new BoxView (){BackgroundColor = Color.Gray };
+						relative.Children.Add (
+					backgroundLine,
+					Constraint.Constant (0),
+					Constraint.Constant(imageSize / 2 -1),
+					Constraint.RelativeToParent (p => p.Width), 
+					Constraint.Constant (2)
+				);
+
 
 				for (int j = 0; j < images_count; j++) {
 					int index = j;
@@ -29,12 +37,16 @@ namespace relative_layout_testing
 						Constraint.RelativeToParent( p => (index * ((p.Width-(images_count)* imageSize) / (images_count- 1) + imageSize))
 						),
 						Constraint.Constant(0));
+					Label l = new Label (){ Text = "" + index, XAlign=TextAlignment.Center,
+						WidthRequest = 53};
+					relative.Children.Add (l, Constraint.RelativeToView (box, (p,v) => v.X),
+						Constraint.Constant(imageSize+5)
+					);
 				}
 				stacker.Children.Add (relative);
 			}
 			Content = scroll;
 		}
-			
 	}
 }
 

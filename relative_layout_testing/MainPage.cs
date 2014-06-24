@@ -7,13 +7,24 @@ namespace relative_layout_testing
 	{
 		public MainPage ()
 		{
+			var stack = new StackLayout ();
 			var button = new Button () {
-				Text = "click to test speed"
+				Text = "click for minimal test"
 			};
 			button.Clicked += (object sender, EventArgs e) => {
 				Navigation.PushAsync(new TestPage());
 			};
-			Content = button;
+			stack.Children.Add (button);
+
+			button = new Button () {
+				Text = "click for how it should look test"
+			};
+			button.Clicked += (object sender, EventArgs e) => {
+				Navigation.PushAsync(new HowItShouldLook());
+			};
+			stack.Children.Add (button);
+
+			Content = stack;
 		}
 	}
 }
