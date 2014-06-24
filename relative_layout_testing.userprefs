@@ -1,0 +1,5 @@
+﻿<Properties>
+  <DisabledProjects>
+    <String>Android/relative_layout_testing.Android.csproj</String>
+  </DisabledProjects>
+</Properties>

@@ -1,0 +1,43 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Compiled source #
+###################
+*.com
+*.class
+
+*.exe
+*.o
+*.so
+
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# generated files
+bin/
+gen/
+builder/Payload/*
+
+# Local configuration file (sdk path, etc)
+local.propertiesobj/
+
+*/obj
+*~
+checkpoint-love/Android/obj/
+checkpoint-love/iOS/obj/
+checkpoint-love.userprefs
+packages/
+
+webservice/logs/*
